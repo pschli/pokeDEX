@@ -21,7 +21,9 @@ const typeColors = {
 };
 
 let allPokemon = {};
+let activePokemonSource = {};
 let pokemonDetails = {};
+let currentSelectedType = "none";
 
 let offset = 0;
 
@@ -39,10 +41,10 @@ async function getAllPokemon() {
   return;
 }
 
-async function displayPokemon() {
-  for (let i = offset; i < offset + 24 && i < allPokemon.length; i++) {
+async function displayPokemon(activeObject = allPokemon) {
+  for (let i = offset; i < offset + 24 && i < activeObject.length; i++) {
     let pokemonDetail;
-    let pokemonName = allPokemon[i].name;
+    let pokemonName = activeObject[i].name;
     pokemonDetail = await getPokemonDetails(pokemonName);
     if (pokemonDetail == true) {
       renderPokemonCard(pokemonName);
@@ -52,32 +54,27 @@ async function displayPokemon() {
   return;
 }
 
+function displayMorePokemon() {
+  currentSelectedType == "none"
+    ? displayPokemon()
+    : displayPokemon(activePokemonSource);
+}
+
 function renderPokemonCard(pokemonName) {
   let container = document.getElementById("content");
   let details = pokemonDetails[pokemonName];
   let pokemonType = details.type[0];
   let bgColor = typeColors[pokemonType][0];
   let displayName = capitalizeString(pokemonName);
-  container.innerHTML += `<div class="card" id="small-${pokemonName}">
-          <div class="card-top-area" style="background-color:${bgColor}" id="top-${pokemonName}">
-            <img
-              src="${details.spriteUrl}"
-              alt="${pokemonName} picture"
-            />
-          </div>
-          <div class="card-bottom-area" id="bottom-${pokemonName}">
-            <h3>${displayName}</h3>
-            <div class="types" id="types-${pokemonName}">
-            </div>
-          </div>
-        </div>`;
+  container.innerHTML += returnCard(pokemonName, bgColor, details, displayName);
+  renderPokemonType(pokemonName, details);
+}
+
+function renderPokemonType(pokemonName, details) {
   container = document.getElementById(`types-${pokemonName}`);
   for (let i = 0; i < details.type.length; i++) {
-    pokemonType = details.type[i];
-    container.innerHTML += `
-        <div class="typeicon ${pokemonType}">
-           <img src="./icons/type/${pokemonType}.svg" alt="" />
-        </div>`;
+    let pokemonType = details.type[i];
+    container.innerHTML += returnType(pokemonType);
   }
 }
 
@@ -138,9 +135,31 @@ async function getStatsFromData(pokemonData) {
 
 async function selectType(pokemonType) {
   changeColors(pokemonType);
-  if (pokemonType != "none") {
+  if (pokemonType != "none" && pokemonType != currentSelectedType) {
+    let pokemonsToShow = await fetch(
+      `https://pokeapi.co/api/v2/type/${pokemonType}`
+    );
+    let objectToSort = await pokemonsToShow.json();
+    pokemonsToShow = await sortPokemonObject(objectToSort);
+    document.getElementById("content").innerHTML = "";
+    currentSelectedType = pokemonType;
+    offset = 0;
+    activePokemonSource = pokemonsToShow;
+    displayPokemon(activePokemonSource);
+  } else if (pokemonType == "none" && pokemonType != currentSelectedType) {
+    document.getElementById("content").innerHTML = "";
+    currentSelectedType = pokemonType;
+    offset = 0;
+    displayPokemon();
   }
   return;
+}
+
+async function sortPokemonObject(objectToSort) {
+  let unsortedPokemon = objectToSort.pokemon;
+  let sortedPokemon = {};
+  sortedPokemon = unsortedPokemon.map((item) => ({ name: item.pokemon.name }));
+  return sortedPokemon;
 }
 
 function changeColors(color) {
