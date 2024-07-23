@@ -25,8 +25,6 @@ let pokemonDetails = {};
 
 let offset = 0;
 
-init();
-
 async function init() {
   await getAllPokemon();
   displayPokemon();
@@ -41,7 +39,7 @@ async function getAllPokemon() {
   return;
 }
 
-async function displayPokemon(selection = "") {
+async function displayPokemon() {
   for (let i = offset; i < offset + 24 && i < allPokemon.length; i++) {
     let pokemonDetail;
     let pokemonName = allPokemon[i].name;
@@ -55,7 +53,32 @@ async function displayPokemon(selection = "") {
 }
 
 function renderPokemonCard(pokemonName) {
-  console.log("Here we are");
+  let container = document.getElementById("content");
+  let details = pokemonDetails[pokemonName];
+  let pokemonType = details.type[0];
+  let bgColor = typeColors[pokemonType][0];
+  let displayName = capitalizeString(pokemonName);
+  container.innerHTML += `<div class="card" id="small-${pokemonName}">
+          <div class="card-top-area" style="background-color:${bgColor}" id="top-${pokemonName}">
+            <img
+              src="${details.spriteUrl}"
+              alt="${pokemonName} picture"
+            />
+          </div>
+          <div class="card-bottom-area" id="bottom-${pokemonName}">
+            <h3>${displayName}</h3>
+            <div class="types" id="types-${pokemonName}">
+            </div>
+          </div>
+        </div>`;
+  container = document.getElementById(`types-${pokemonName}`);
+  for (let i = 0; i < details.type.length; i++) {
+    pokemonType = details.type[i];
+    container.innerHTML += `
+        <div class="typeicon ${pokemonType}">
+           <img src="./icons/type/${pokemonType}.svg" alt="" />
+        </div>`;
+  }
 }
 
 async function getPokemonDetails(pokemonName) {
@@ -141,4 +164,8 @@ function elementBuilder(parent, childType, childClass, childID = "") {
   child.id = childID;
   parent.appendChild(child);
   return child;
+}
+
+function capitalizeString(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
 }

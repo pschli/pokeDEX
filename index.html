@@ -8,7 +8,7 @@
     <script src="script.js"></script>
     <title>PokéDEX</title>
   </head>
-  <body class="standard-body" id="body">
+  <body class="standard-body" id="body" onload="init()">
     <header class="standard-header" id="header">
       <div class="limiter">
         <div class="header-left">
@@ -163,28 +163,10 @@
       </div>
     </header>
     <div class="main">
-      <div class="content">
-        <div class="card" id="56">
-          <div class="card-top-area cc-green" id="top-56">
-            <img
-              src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png"
-              alt="Bulbasaur picture"
-            />
-          </div>
-          <div class="card-bottom-area" id="bottom-56">
-            <h3>Bulbasaur</h3>
-            <div class="types">
-              <div class="typeicon poison">
-                <img src="./icons/type/poison.svg" alt="" />
-              </div>
-              <div class="typeicon grass">
-                <img src="./icons/type/grass.svg" alt="" />
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="content" id="content"></div>
+      <div class="center">
+        <button id="loadbutton" onclick="displayPokemon()">Load more</button>
       </div>
-      <div class="center"><button id="loadbutton">Load more</button></div>
     </div>
 
     <footer></footer>
