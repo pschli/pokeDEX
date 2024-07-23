@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="templates.js"></script>
+    <script src="script.js"></script>
+    <title>PokéDEX</title>
+  </head>
+  <body class="standard-body" id="body">
+    <header class="standard-header" id="header">
+      <div class="limiter">
+        <div class="header-left">
+          <div id="home"><img src="./img/pokedex_logo3.png" alt="" /></div>
+        </div>
+        <div class="header-right">
+          <div class="searchbar">
+            <img src="./icons/search-magnifying-glass-svgrepo-com.svg" alt="" />
+            <input type="text" placeholder="Search for Pokémon" />
+          </div>
+          <details>
+            <summary>
+              <div class="settype">Choose Type</div>
+            </summary>
+            <ul>
+              <div
+                class="settype-menu"
+                id="clear-selector"
+                onclick="selectType('none')"
+              >
+                none
+              </div>
+              <div
+                class="settype-menu"
+                id="bug-selector"
+                onclick="selectType('bug')"
+              >
+                Bug
+              </div>
+              <div
+                class="settype-menu"
+                id="dark-selector"
+                onclick="selectType('dark')"
+              >
+                Dark
+              </div>
+              <div
+                class="settype-menu"
+                id="dragon-selector"
+                onclick="selectType('dragon')"
+              >
+                Dragon
+              </div>
+              <div
+                class="settype-menu"
+                id="electric-selector"
+                onclick="selectType('electric')"
+              >
+                Electric
+              </div>
+              <div
+                class="settype-menu"
+                id="fire-selector"
+                onclick="selectType('fire')"
+              >
+                Fire
+              </div>
+              <div
+                class="settype-menu"
+                id="fairy-selector"
+                onclick="selectType('fairy')"
+              >
+                Fairy
+              </div>
+              <div
+                class="settype-menu"
+                id="fighting-selector"
+                onclick="selectType('fighting')"
+              >
+                Fighting
+              </div>
+              <div
+                class="settype-menu"
+                id="flying-selector"
+                onclick="selectType('flying')"
+              >
+                Flying
+              </div>
+              <div
+                class="settype-menu"
+                id="ghost-selector"
+                onclick="selectType('ghost')"
+              >
+                Ghost
+              </div>
+              <div
+                class="settype-menu"
+                id="grass-selector"
+                onclick="selectType('grass')"
+              >
+                Grass
+              </div>
+              <div
+                class="settype-menu"
+                id="ground-selector"
+                onclick="selectType('ground')"
+              >
+                Ground
+              </div>
+              <div
+                class="settype-menu"
+                id="ice-selector"
+                onclick="selectType('ice')"
+              >
+                Ice
+              </div>
+              <div
+                class="settype-menu"
+                id="normal-selector"
+                onclick="selectType('normal')"
+              >
+                Normal
+              </div>
+              <div
+                class="settype-menu"
+                id="poison-selector"
+                onclick="selectType('poison')"
+              >
+                Poison
+              </div>
+              <div
+                class="settype-menu"
+                id="psychic-selector"
+                onclick="selectType('psychic')"
+              >
+                Psychic
+              </div>
+              <div
+                class="settype-menu"
+                id="rock-selector"
+                onclick="selectType('rock')"
+              >
+                Rock
+              </div>
+              <div
+                class="settype-menu"
+                id="steel-selector"
+                onclick="selectType('steel')"
+              >
+                Steel
+              </div>
+              <div
+                class="settype-menu"
+                id="water-selector"
+                onclick="selectType('water')"
+              >
+                Water
+              </div>
+            </ul>
+          </details>
+        </div>
+      </div>
+    </header>
+    <div class="main">
+      <div class="content">
+        <div class="card" id="56">
+          <div class="card-top-area cc-green" id="top-56">
+            <img
+              src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png"
+              alt="Bulbasaur picture"
+            />
+          </div>
+          <div class="card-bottom-area" id="bottom-56">
+            <h3>Bulbasaur</h3>
+            <div class="types">
+              <div class="typeicon poison">
+                <img src="./icons/type/poison.svg" alt="" />
+              </div>
+              <div class="typeicon grass">
+                <img src="./icons/type/grass.svg" alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="center"><button id="loadbutton">Load more</button></div>
+    </div>
+
+    <footer></footer>
+  </body>
+</html>
