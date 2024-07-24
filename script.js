@@ -27,6 +27,12 @@ let currentSelectedType = "none";
 
 let offset = 0;
 
+async function init2() {
+  await getAllPokemon();
+  await getPokemonDetails("bulbasaur");
+  showPokemonDetails("bulbasaur", 0);
+}
+
 async function init() {
   await getAllPokemon();
   displayPokemon();
@@ -47,7 +53,7 @@ async function displayPokemon(activeObject = allPokemon) {
     let pokemonName = activeObject[i].name;
     pokemonDetail = await getPokemonDetails(pokemonName);
     if (pokemonDetail == true) {
-      renderPokemonCard(pokemonName);
+      renderPokemonCard(pokemonName, i);
     }
   }
   offset += 24;
@@ -60,13 +66,19 @@ function displayMorePokemon() {
     : displayPokemon(activePokemonSource);
 }
 
-function renderPokemonCard(pokemonName) {
+function renderPokemonCard(pokemonName, id) {
   let container = document.getElementById("content");
   let details = pokemonDetails[pokemonName];
   let pokemonType = details.type[0];
   let bgColor = typeColors[pokemonType][0];
   let displayName = capitalizeString(pokemonName);
-  container.innerHTML += returnCard(pokemonName, bgColor, details, displayName);
+  container.innerHTML += returnCard(
+    pokemonName,
+    bgColor,
+    details,
+    displayName,
+    id
+  );
   renderPokemonType(pokemonName, details);
 }
 
@@ -102,12 +114,14 @@ async function createDetailsObject(pName, pType, pStats, sprite, audio) {
     [pName]: {
       type: pType,
       baseXp: pStats[0],
-      health: pStats[1],
-      attack: pStats[2],
-      defense: pStats[3],
-      spAttack: pStats[4],
-      spDefense: pStats[5],
-      speed: pStats[6],
+      height: pStats[1],
+      weight: pStats[2],
+      health: pStats[3],
+      attack: pStats[4],
+      defense: pStats[5],
+      spAttack: pStats[6],
+      spDefense: pStats[7],
+      speed: pStats[8],
       spriteUrl: sprite,
       audioUrl: audio,
     },
@@ -127,6 +141,7 @@ async function getStatsFromData(pokemonData) {
   let pokeStats = [];
   pokeStats.push(pokemonData.base_experience);
   pokeStats.push(pokemonData.height);
+  pokeStats.push(pokemonData.weight);
   for (let i = 0; i < 6; i++) {
     pokeStats.push(pokemonData.stats[i]["base_stat"]);
   }
@@ -139,8 +154,8 @@ async function selectType(pokemonType) {
     let pokemonsToShow = await fetch(
       `https://pokeapi.co/api/v2/type/${pokemonType}`
     );
-    let objectToSort = await pokemonsToShow.json();
-    pokemonsToShow = await sortPokemonObject(objectToSort);
+    let dataToExtract = await pokemonsToShow.json();
+    pokemonsToShow = await extractFromObject(dataToExtract);
     document.getElementById("content").innerHTML = "";
     currentSelectedType = pokemonType;
     offset = 0;
@@ -155,11 +170,11 @@ async function selectType(pokemonType) {
   return;
 }
 
-async function sortPokemonObject(objectToSort) {
-  let unsortedPokemon = objectToSort.pokemon;
-  let sortedPokemon = {};
-  sortedPokemon = unsortedPokemon.map((item) => ({ name: item.pokemon.name }));
-  return sortedPokemon;
+async function extractFromObject(dataToExtract) {
+  let branchedObject = dataToExtract.pokemon;
+  let justTheNames = {};
+  justTheNames = branchedObject.map((item) => ({ name: item.pokemon.name }));
+  return justTheNames;
 }
 
 function changeColors(color) {
@@ -172,7 +187,7 @@ function changeColors(color) {
 }
 
 function createOverlay(id) {
-  let parent = document.getElementById("main");
+  let parent = document.getElementById("body");
   let overlay = elementBuilder(parent, "div", "overlay", id);
   return overlay;
 }

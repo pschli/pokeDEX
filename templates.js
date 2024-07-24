@@ -1,6 +1,6 @@
-function returnCard(pokemonName, bgColor, details, displayName) {
+function returnCard(pokemonName, bgColor, details, displayName, id) {
   return `
-        <div class="card" id="small-${pokemonName}">
+        <div class="card" id="small-${pokemonName}" onclick="showPokemonDetails('${pokemonName}', '${id}')">
           <div class="card-top-area" style="background-color:${bgColor}" id="top-${pokemonName}">
             <img
               src="${details.spriteUrl}"
