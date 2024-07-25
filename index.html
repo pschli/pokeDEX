@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="style.css" />
     <script src="templates.js"></script>
     <script src="details.js"></script>
+    <script src="search.js"></script>
     <script src="script.js"></script>
     <title>PokéDEX</title>
   </head>
@@ -18,7 +19,19 @@
         <div class="header-right">
           <div class="searchbar">
             <img src="./icons/search-magnifying-glass-svgrepo-com.svg" alt="" />
-            <input type="text" placeholder="Search for Pokémon" />
+            <input
+              type="text"
+              placeholder="Search for Pokémon"
+              onkeyup="engageSearch(this.value)"
+              id="search-input"
+            />
+            <img
+              class="d-none"
+              src="./icons/close-md-svgrepo-com.svg"
+              alt=""
+              id="empty-search"
+              onclick="emptySearch()"
+            />
           </div>
           <details id="details-type-selector">
             <summary>

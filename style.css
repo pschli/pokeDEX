@@ -156,6 +156,10 @@ header {
   font-weight: 400;
 }
 
+#empty-search {
+  cursor: pointer;
+}
+
 header details {
   position: relative;
   display: flex;

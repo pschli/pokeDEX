@@ -22,16 +22,12 @@ const typeColors = {
 
 let allPokemon = {};
 let activePokemonSource = {};
+let searchList = {};
 let pokemonDetails = {};
 let currentSelectedType = "none";
 
 let offset = 0;
-
-async function init2() {
-  await getAllPokemon();
-  await getPokemonDetails("bulbasaur");
-  showPokemonDetails("bulbasaur", 0);
-}
+searchActive = false;
 
 async function init() {
   await getAllPokemon();
