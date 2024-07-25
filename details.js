@@ -1,5 +1,6 @@
 function showPokemonDetails(pokemonName, id) {
   let overlay = createOverlay("detailview-overlay");
+  document.getElementById("body").classList.add("disable-scroll");
   overlay.onclick = function () {
     closeOverlay("detailview-overlay");
   };
@@ -52,10 +53,16 @@ function pokemonToShow(id) {
 }
 
 function createPokemonDetailsCard(overlay, pokemonName, id) {
+  if (!pokemonDetails[pokemonName]) pokemonName = "missing";
   let details = pokemonDetails[pokemonName];
   let bgColor = typeColors[details.type[0]][0];
   addBackArrow(overlay, Number(id) - 1);
-  overlay.innerHTML += returnPokemonDetailsCard(id, bgColor, details);
+  overlay.innerHTML += returnPokemonDetailsCard(
+    id,
+    bgColor,
+    details,
+    capitalizeString(pokemonName)
+  );
   addNextArrow(overlay, Number(id) + 1);
   addValueBars();
   addTypesToDetailView(details);
@@ -102,4 +109,5 @@ function toggleOldTab() {
 
 function closeOverlay(id) {
   document.getElementById(id).remove();
+  document.getElementById("body").classList.remove("disable-scroll");
 }

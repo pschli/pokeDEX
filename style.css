@@ -67,6 +67,10 @@ h3 {
   display: none;
 }
 
+.disable-scroll {
+  overflow: hidden;
+}
+
 .d-flex {
   display: flex;
 }
@@ -548,6 +552,7 @@ footer {
   height: 0;
   border-top: 280px solid transparent;
   border-bottom: 280px solid transparent;
+  cursor: pointer;
 }
 
 .back {
@@ -555,9 +560,17 @@ footer {
   margin-right: 40px;
 }
 
+.back:hover {
+  border-right: 90px solid rgba(255, 255, 255, 0.9);
+}
+
 .next {
   border-left: 90px solid rgba(255, 255, 255, 0.8);
   margin-left: 40px;
+}
+
+.next:hover {
+  border-left: 90px solid rgba(255, 255, 255, 0.9);
 }
 
 .detailview {

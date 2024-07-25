@@ -23,7 +23,22 @@ const typeColors = {
 let allPokemon = {};
 let activePokemonSource = {};
 let searchList = {};
-let pokemonDetails = {};
+let pokemonDetails = {
+  missing: {
+    type: ["normal"],
+    baseXp: 0,
+    height: 0,
+    weight: 0,
+    health: 0,
+    attack: 0,
+    defense: 0,
+    spAttack: 0,
+    spDefense: 0,
+    speed: 0,
+    spriteUrl: "./img/3.svg",
+    audioUrl: "audio",
+  },
+};
 let currentSelectedType = "none";
 
 let offset = 0;
@@ -64,6 +79,7 @@ function displayMorePokemon() {
 
 function renderPokemonCard(pokemonName, id) {
   let container = document.getElementById("content");
+  if (!pokemonDetails[pokemonName]) return;
   let details = pokemonDetails[pokemonName];
   let pokemonType = details.type[0];
   let bgColor = typeColors[pokemonType][0];
@@ -91,13 +107,17 @@ async function getPokemonDetails(pokemonName) {
   let fetchUrl = `https://pokeapi.co/api/v2/pokemon/${pokemonName}`;
   if (pokemonDetails[pokemonName] == undefined) {
     pokemonDetail = await fetch(fetchUrl);
-    let pokeData = await pokemonDetail.json();
+    let pokeData;
+    try {
+      pokeData = await pokemonDetail.json();
+    } catch {}
     await structurePokemonDetails(pokemonName, pokeData);
     return true;
   } else return true;
 }
 
 async function structurePokemonDetails(pokeName, pokemonData) {
+  if (!pokemonData) return false;
   let pokeType = await getTypeFromData(pokemonData);
   let pokeStats = await getStatsFromData(pokemonData);
   let spriteUrl = pokemonData.sprites.other["official-artwork"].front_default;
@@ -127,6 +147,7 @@ async function createDetailsObject(pName, pType, pStats, sprite, audio) {
 
 async function getTypeFromData(pokemonData) {
   let pokeType = [];
+  if (!pokemonData) return false;
   for (let i = 0; i < pokemonData.types.length; i++) {
     pokeType.push(pokemonData.types[i].type.name);
   }
@@ -134,6 +155,7 @@ async function getTypeFromData(pokemonData) {
 }
 
 async function getStatsFromData(pokemonData) {
+  if (!pokemonData) return false;
   let pokeStats = [];
   pokeStats.push(pokemonData.base_experience);
   pokeStats.push(pokemonData.height);

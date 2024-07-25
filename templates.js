@@ -22,7 +22,7 @@ function returnType(pokemonType) {
         </div>`;
 }
 
-function returnPokemonDetailsCard(id, bgColor, details) {
+function returnPokemonDetailsCard(id, bgColor, details, pokemonName) {
   return `
     <div class="detailview" id="detailview-${id}" onclick="event.stopPropagation()">
         <div class="top-details-container" style="background-color:${bgColor}">
@@ -30,6 +30,7 @@ function returnPokemonDetailsCard(id, bgColor, details) {
             src="${details["spriteUrl"]}"
             alt=""
           />
+          <div><h2>${pokemonName}</h2></div>
         </div>
         <div class="bottom-details-container">
           <div class="navtabs">
