@@ -71,6 +71,10 @@ h3 {
   display: flex;
 }
 
+.invisible {
+  opacity: 0;
+}
+
 /* header */
 
 header {
@@ -368,6 +372,9 @@ details ul {
 }
 
 #loadbutton {
+  font-size: 16px;
+  font-family: "Cabin", sans-serif;
+  font-weight: 400;
   width: 200px;
   height: 36px;
   margin-bottom: 44px;
@@ -530,6 +537,23 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.arrow {
+  width: 0;
+  height: 0;
+  border-top: 280px solid transparent;
+  border-bottom: 280px solid transparent;
+}
+
+.back {
+  border-right: 90px solid rgba(255, 255, 255, 0.8);
+  margin-right: 40px;
+}
+
+.next {
+  border-left: 90px solid rgba(255, 255, 255, 0.8);
+  margin-left: 40px;
 }
 
 .detailview {

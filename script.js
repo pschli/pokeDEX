@@ -151,23 +151,28 @@ async function getStatsFromData(pokemonData) {
 async function selectType(pokemonType) {
   changeColors(pokemonType);
   if (pokemonType != "none" && pokemonType != currentSelectedType) {
-    let pokemonsToShow = await fetch(
-      `https://pokeapi.co/api/v2/type/${pokemonType}`
-    );
-    let dataToExtract = await pokemonsToShow.json();
-    pokemonsToShow = await extractFromObject(dataToExtract);
-    document.getElementById("content").innerHTML = "";
-    currentSelectedType = pokemonType;
-    offset = 0;
-    activePokemonSource = pokemonsToShow;
-    displayPokemon(activePokemonSource);
+    changePokemonType(pokemonType);
   } else if (pokemonType == "none" && pokemonType != currentSelectedType) {
     document.getElementById("content").innerHTML = "";
     currentSelectedType = pokemonType;
     offset = 0;
     displayPokemon();
   }
+  document.getElementById("details-type-selector").open = false;
   return;
+}
+
+async function changePokemonType(pokemonType) {
+  let pokemonsToShow = await fetch(
+    `https://pokeapi.co/api/v2/type/${pokemonType}`
+  );
+  let dataToExtract = await pokemonsToShow.json();
+  pokemonsToShow = await extractFromObject(dataToExtract);
+  document.getElementById("content").innerHTML = "";
+  currentSelectedType = pokemonType;
+  offset = 0;
+  activePokemonSource = pokemonsToShow;
+  displayPokemon(activePokemonSource);
 }
 
 async function extractFromObject(dataToExtract) {

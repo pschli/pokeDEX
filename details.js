@@ -3,17 +3,60 @@ function showPokemonDetails(pokemonName, id) {
   overlay.onclick = function () {
     closeOverlay("detailview-overlay");
   };
+  createPokemonDetailsCard(overlay, pokemonName, id);
+}
+
+function addBackArrow(overlay, id) {
+  id >= 0
+    ? (overlay.innerHTML += `<div class="arrow back" onclick="showPreviousPokemon(event, ${id})"></div>`)
+    : `<div class="arrow back invisible"></div>`;
+}
+
+async function addNextArrow(overlay, id) {
+  console.log(id);
+  let isLastElement = await checkForLastElement(id);
+  if (isLastElement)
+    overlay.innerHTML += `<div class="arrow next invisible"></div>`;
+  else
+    overlay.innerHTML += `<div class="arrow next" onclick="showPreviousPokemon(event, ${id})"></div>`;
+}
+
+async function checkForLastElement(id) {
+  if (
+    (currentSelectedType == "none" && id < allPokemon.length) ||
+    (currentSelectedType != "none" && id < activePokemonSource.length)
+  ) {
+    if (id == offset) displayMorePokemon();
+    return false;
+  } else return true;
+}
+
+function showPreviousPokemon(event, id) {
+  event.stopPropagation();
+  let overlay = document.getElementById("detailview-overlay");
+  let pokemonName = pokemonToShow(id);
+  overlay.innerHTML = "";
+  createPokemonDetailsCard(overlay, pokemonName, id);
+}
+
+function pokemonToShow(id) {
+  if (currentSelectedType == "none") return allPokemon[id].name;
+  else return activePokemonSource[id].name;
+}
+
+function createPokemonDetailsCard(overlay, pokemonName, id) {
   let details = pokemonDetails[pokemonName];
   let bgColor = typeColors[details.type[0]][0];
-  overlay.innerHTML = `
-    <div class="detailview" id="detailview">
-        <div class="top-details-container" style="background-color:${bgColor}" id="top-details-container">
+  addBackArrow(overlay, Number(id) - 1);
+  overlay.innerHTML += `
+    <div class="detailview" id="detailview-${id}" onclick="event.stopPropagation()">
+        <div class="top-details-container" style="background-color:${bgColor}">
           <img
             src="${details["spriteUrl"]}"
             alt=""
           />
         </div>
-        <div class="bottom-details-container" id="bottom-details-container">
+        <div class="bottom-details-container">
           <div class="navtabs">
             <button id="b1" class="active-tab" onclick="toggleTab(event, '1')">
               Stats</button
@@ -98,6 +141,7 @@ function showPokemonDetails(pokemonName, id) {
         </div>
     </div>
   `;
+  addNextArrow(overlay, Number(id) + 1);
   addValueBars();
   addTypesToDetailView(details);
 }
