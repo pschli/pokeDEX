@@ -5,11 +5,12 @@ function showPokemonDetails(pokemonName, id) {
     closeOverlay("detailview-overlay");
   };
   createPokemonDetailsCard(overlay, pokemonName, id);
+  addOverlayEventListeners(overlay, id);
 }
 
 function addBackArrow(overlay, id) {
   id >= 0
-    ? (overlay.innerHTML += `<div class="arrow back" onclick="showPreviousPokemon(event, ${id})"></div>`)
+    ? (overlay.innerHTML += `<div class="arrow back" onclick="showFollowUpPokemon(event, ${id})"></div>`)
     : `<div class="arrow back invisible"></div>`;
 }
 
@@ -18,11 +19,11 @@ async function addNextArrow(overlay, id) {
   if (isLastElement)
     overlay.innerHTML += `<div class="arrow next invisible"></div>`;
   else
-    overlay.innerHTML += `<div class="arrow next" onclick="showPreviousPokemon(event, ${id})"></div>`;
+    overlay.innerHTML += `<div class="arrow next" onclick="showFollowUpPokemon(event, ${id})"></div>`;
 }
 
 async function checkForLastElement(id) {
-  if (listHasMorePokemon) {
+  if (listHasMorePokemon(id)) {
     if (id == offset) displayMorePokemon();
     return false;
   } else return true;
@@ -40,12 +41,13 @@ function listHasMorePokemon(id) {
   );
 }
 
-function showPreviousPokemon(event, id) {
-  event.stopPropagation();
+function showFollowUpPokemon(event, id) {
+  if (event) event.stopPropagation();
   let overlay = document.getElementById("detailview-overlay");
   let pokemonName = pokemonToShow(id);
   overlay.innerHTML = "";
   createPokemonDetailsCard(overlay, pokemonName, id);
+  addOverlayEventListeners(overlay, id);
 }
 
 function pokemonToShow(id) {

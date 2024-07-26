@@ -42,7 +42,9 @@ let pokemonDetails = {
 let currentSelectedType = "none";
 
 let offset = 0;
-searchActive = false;
+let searchActive = false;
+let nextPossible = false;
+let previousPossible = false;
 
 async function init() {
   await getListOfAllPokemon();
