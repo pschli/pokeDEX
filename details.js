@@ -22,7 +22,14 @@ async function addNextArrow(overlay, id) {
 }
 
 async function checkForLastElement(id) {
-  if (
+  if (listHasMorePokemon) {
+    if (id == offset) displayMorePokemon();
+    return false;
+  } else return true;
+}
+
+function listHasMorePokemon(id) {
+  return (
     (currentSelectedType == "none" &&
       id < allPokemon.length &&
       searchActive == false) ||
@@ -30,10 +37,7 @@ async function checkForLastElement(id) {
       id < activePokemonSource.length &&
       searchActive == false) ||
     (searchActive == true && id < searchList.length)
-  ) {
-    if (id == offset) displayMorePokemon();
-    return false;
-  } else return true;
+  );
 }
 
 function showPreviousPokemon(event, id) {

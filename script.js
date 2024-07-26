@@ -45,11 +45,11 @@ let offset = 0;
 searchActive = false;
 
 async function init() {
-  await getAllPokemon();
+  await getListOfAllPokemon();
   displayPokemon();
 }
 
-async function getAllPokemon() {
+async function getListOfAllPokemon() {
   let fetchedData = await fetch(
     "https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0"
   );
@@ -79,7 +79,6 @@ function displayMorePokemon() {
 
 function renderPokemonCard(pokemonName, id) {
   let container = document.getElementById("content");
-  if (!pokemonDetails[pokemonName]) return;
   let details = pokemonDetails[pokemonName];
   let pokemonType = details.type[0];
   let bgColor = typeColors[pokemonType][0];
@@ -117,15 +116,22 @@ async function getPokemonDetails(pokemonName) {
 }
 
 async function structurePokemonDetails(pokeName, pokemonData) {
-  if (!pokemonData) return false;
-  let pokeType = await getTypeFromData(pokemonData);
-  let pokeStats = await getStatsFromData(pokemonData);
-  let spriteUrl = pokemonData.sprites.other["official-artwork"].front_default;
-  let audioUrl = pokemonData.cries.latest;
-  await createDetailsObject(pokeName, pokeType, pokeStats, spriteUrl, audioUrl);
+  if (!pokemonData) setDataForMissingDataset(pokeName);
+  else {
+    let pokeType = await getTypeFromData(pokemonData);
+    let pokeStats = await getStatsFromData(pokemonData);
+    let spriteUrl = pokemonData.sprites.other["official-artwork"].front_default;
+    let audioUrl = pokemonData.cries.latest;
+    await createDetailsObj(pokeName, pokeType, pokeStats, spriteUrl, audioUrl);
+  }
 }
 
-async function createDetailsObject(pName, pType, pStats, sprite, audio) {
+function setDataForMissingDataset(pokeName) {
+  let missingDetails = { [pokeName]: pokemonDetails.missing };
+  Object.assign(pokemonDetails, missingDetails);
+}
+
+async function createDetailsObj(pName, pType, pStats, sprite, audio) {
   let newDetails = {
     [pName]: {
       type: pType,
@@ -147,7 +153,6 @@ async function createDetailsObject(pName, pType, pStats, sprite, audio) {
 
 async function getTypeFromData(pokemonData) {
   let pokeType = [];
-  if (!pokemonData) return false;
   for (let i = 0; i < pokemonData.types.length; i++) {
     pokeType.push(pokemonData.types[i].type.name);
   }
@@ -155,7 +160,6 @@ async function getTypeFromData(pokemonData) {
 }
 
 async function getStatsFromData(pokemonData) {
-  if (!pokemonData) return false;
   let pokeStats = [];
   pokeStats.push(pokemonData.base_experience);
   pokeStats.push(pokemonData.height);
