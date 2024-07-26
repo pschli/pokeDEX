@@ -11,13 +11,15 @@ function addOverlayEventListeners(overlay, id) {
 }
 
 function whichDirection(id) {
-  if (touchendX < touchstartX) swipeToNext(Number(id) + 1);
-  if (touchendX > touchstartX) swipeToPrevious(Number(id) - 1);
   if (
-    touchendY - touchstartY > 150 &&
+    touchendY - touchstartY > 100 &&
     Math.abs(touchendX - touchstartX) < touchendY - touchstartY
   )
     closeOverlay("detailview-overlay");
+  else {
+    if (touchendX < touchstartX) swipeToNext(Number(id) + 1);
+    if (touchendX > touchstartX) swipeToPrevious(Number(id) - 1);
+  }
 }
 
 function swipeToPrevious(id) {

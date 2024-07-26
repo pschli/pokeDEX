@@ -43,11 +43,9 @@ function listHasMorePokemon(id) {
 
 function showFollowUpPokemon(event, id) {
   if (event) event.stopPropagation();
-  let overlay = document.getElementById("detailview-overlay");
   let pokemonName = pokemonToShow(id);
-  overlay.innerHTML = "";
-  createPokemonDetailsCard(overlay, pokemonName, id);
-  addOverlayEventListeners(overlay, id);
+  document.getElementById("detailview-overlay").remove();
+  showPokemonDetails(pokemonName, id);
 }
 
 function pokemonToShow(id) {
