@@ -21,7 +21,6 @@
   --rock-color: #c9bb8a;
   --steel-color: #5695a3;
   --water-color: #539ddf;
-  --cc-green: var(--grass-color);
 }
 
 @font-face {
@@ -650,6 +649,17 @@ footer {
 .bar-table {
   width: 90%;
   border-collapse: collapse;
+  position: relative;
+}
+
+.playsound {
+  height: 28px;
+  background-color: #f69037;
+}
+
+#b4 {
+  background-color: #f69037;
+  border-radius: 8px;
 }
 
 .bar-table tr {

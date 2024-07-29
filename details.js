@@ -115,3 +115,9 @@ function closeOverlay(id) {
   document.getElementById(id).remove();
   document.getElementById("body").classList.remove("disable-scroll");
 }
+
+function playSound(soundUrl) {
+  console.log(soundUrl);
+  let pokemonSound = new Audio(soundUrl);
+  pokemonSound.play();
+}

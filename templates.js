@@ -22,10 +22,12 @@ function returnType(pokemonType) {
         </div>`;
 }
 
+// style="background-color:${bgColor}"
+
 function returnPokemonDetailsCard(id, bgColor, details, pokemonName) {
   return `
     <div class="detailview" id="detailview-${id}" onclick="event.stopPropagation()">
-        <div class="top-details-container" style="background-color:${bgColor}">
+        <div class="top-details-container top-card-bg ${details.type[0]}-animated">
           <img
             src="${details["spriteUrl"]}"
             alt=""
@@ -38,6 +40,7 @@ function returnPokemonDetailsCard(id, bgColor, details, pokemonName) {
               Stats</button
             ><button id="b2" onclick="toggleTab(event, '2')">Fight</button
             ><button id="b3" onclick="toggleTab(event, '3')">Evolution</button>
+            <button id="b4" onclick="playSound('${details.audioUrl}')"><img class="playsound" src="./icons/playsound.svg" alt="play sound"></button>
           </div>
           <div class="details-text" id="details1">
             <div class="details-content">

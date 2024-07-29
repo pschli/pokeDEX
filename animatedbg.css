@@ -1,0 +1,762 @@
+/* Define custom properties for each color */
+
+@property --bug-color-1 {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #92bc2c;
+}
+@property --bug-color-2 {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #d4bb3c;
+}
+@property --bug-color-3 {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #8be6ab;
+}
+
+@property --dark-color-1 {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #463e64;
+}
+@property --dark-color-2 {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #787581;
+}
+@property --dark-color-3 {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #9898ed;
+}
+
+@property --dragon-color-1 {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #0c69c8;
+}
+@property --dragon-color-2 {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #1cbce8;
+}
+@property --dragon-color-3 {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #5f63db;
+}
+
+@property --electric-color-1 {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #f2d94e;
+}
+@property --electric-color-2 {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #f1e0a1;
+}
+@property --electric-color-3 {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #cdf368;
+}
+
+@property --fire-color-1 {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #fb9e4c;
+}
+@property --fire-color-2 {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #fcfc5c;
+}
+@property --fire-color-3 {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #fda4a4;
+}
+
+@property --fairy-color-1 {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #d590ee;
+}
+@property --fairy-color-2 {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #f6a0ed;
+}
+@property --fairy-color-3 {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #f4b0b0;
+}
+
+@property --fighting-color-1 {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #d3425f;
+}
+@property --fighting-color-2 {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #e36289;
+}
+@property --fighting-color-3 {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #e5a48a;
+}
+
+@property --flying-color-1 {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #79a6fb;
+}
+@property --flying-color-2 {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #b1eefc;
+}
+@property --flying-color-3 {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #e8d3f3;
+}
+
+@property --ghost-color-1 {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #5f6dbc;
+}
+@property --ghost-color-2 {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #6fadcc;
+}
+@property --ghost-color-3 {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #9f87b4;
+}
+
+@property --grass-color-1 {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #5fbd58;
+}
+@property --grass-color-2 {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #afcd68;
+}
+@property --grass-color-3 {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #abe1ba;
+}
+
+@property --ground-color-1 {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #ecb59a;
+}
+@property --ground-color-2 {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #fcd5aa;
+}
+@property --ground-color-3 {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #cec9c0;
+}
+
+@property --ice-color-1 {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #75d0c1;
+}
+@property --ice-color-2 {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #c6ddd9;
+}
+@property --ice-color-3 {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #a3bcd5;
+}
+
+@property --normal-color-1 {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #d8d9d7;
+}
+@property --normal-color-2 {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #b0b2af;
+}
+@property --normal-color-3 {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #8e8e8e;
+}
+
+@property --poison-color-1 {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #b763cf;
+}
+@property --poison-color-2 {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #c5a9de;
+}
+@property --poison-color-3 {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #97e2c1;
+}
+
+@property --psychic-color-1 {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #f7706b;
+}
+@property --psychic-color-2 {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #ffbd72;
+}
+@property --psychic-color-3 {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #ef9fa8;
+}
+
+@property --rock-color-1 {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #c9bb8a;
+}
+@property --rock-color-2 {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #7d7041;
+}
+@property --rock-color-3 {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #7c7c7c;
+}
+
+@property --steel-color-1 {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #5695a3;
+}
+@property --steel-color-2 {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #849497;
+}
+@property --steel-color-3 {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #b7dad3;
+}
+
+@property --water-color-1 {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #539ddf;
+}
+@property --water-color-2 {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #3f5e80;
+}
+@property --water-color-3 {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #6fddce;
+}
+
+/* Define keyframes for each color animation */
+
+@keyframes animate-bug-1 {
+  to {
+    --bug-color-1: #b2d43c;
+  }
+}
+@keyframes animate-bug-2 {
+  to {
+    --bug-color-2: #d0e68b;
+  }
+}
+@keyframes animate-bug-3 {
+  to {
+    --bug-color-3: #f2ffb3;
+  }
+}
+
+/* Define similar keyframes for other colors */
+
+/* Add the keyframes for other colors here */
+
+@keyframes animate-dark-1 {
+  to {
+    --dark-color-1: #787581;
+  }
+}
+@keyframes animate-dark-2 {
+  to {
+    --dark-color-2: #a1a1a8;
+  }
+}
+@keyframes animate-dark-3 {
+  to {
+    --dark-color-3: #c2c2c8;
+  }
+}
+
+@keyframes animate-dragon-1 {
+  to {
+    --dragon-color-1: #1c79e8;
+  }
+}
+@keyframes animate-dragon-2 {
+  to {
+    --dragon-color-2: #5f9edb;
+  }
+}
+@keyframes animate-dragon-3 {
+  to {
+    --dragon-color-3: #8fbfff;
+  }
+}
+
+@keyframes animate-electric-1 {
+  to {
+    --electric-color-1: #f4e85e;
+  }
+}
+@keyframes animate-electric-2 {
+  to {
+    --electric-color-2: #f4eb87;
+  }
+}
+@keyframes animate-electric-3 {
+  to {
+    --electric-color-3: #ffff99;
+  }
+}
+
+@keyframes animate-fire-1 {
+  to {
+    --fire-color-1: #fcbd5c;
+  }
+}
+@keyframes animate-fire-2 {
+  to {
+    --fire-color-2: #fdd2a4;
+  }
+}
+@keyframes animate-fire-3 {
+  to {
+    --fire-color-3: #ffe6cc;
+  }
+}
+
+@keyframes animate-fairy-1 {
+  to {
+    --fairy-color-1: #f0a0f6;
+  }
+}
+@keyframes animate-fairy-2 {
+  to {
+    --fairy-color-2: #f4b0f0;
+  }
+}
+@keyframes animate-fairy-3 {
+  to {
+    --fairy-color-3: #ffd6f5;
+  }
+}
+
+@keyframes animate-fighting-1 {
+  to {
+    --fighting-color-1: #e3626f;
+  }
+}
+@keyframes animate-fighting-2 {
+  to {
+    --fighting-color-2: #e58a8f;
+  }
+}
+@keyframes animate-fighting-3 {
+  to {
+    --fighting-color-3: #ffadb8;
+  }
+}
+
+@keyframes animate-flying-1 {
+  to {
+    --flying-color-1: #b1cbfc;
+  }
+}
+@keyframes animate-flying-2 {
+  to {
+    --flying-color-2: #c1d7f2;
+  }
+}
+@keyframes animate-flying-3 {
+  to {
+    --flying-color-3: #e3e7ff;
+  }
+}
+
+@keyframes animate-ghost-1 {
+  to {
+    --ghost-color-1: #6f7dcc;
+  }
+}
+@keyframes animate-ghost-2 {
+  to {
+    --ghost-color-2: #8787b4;
+  }
+}
+@keyframes animate-ghost-3 {
+  to {
+    --ghost-color-3: #a1a1c8;
+  }
+}
+
+@keyframes animate-grass-1 {
+  to {
+    --grass-color-1: #6fcd68;
+  }
+}
+@keyframes animate-grass-2 {
+  to {
+    --grass-color-2: #85d085;
+  }
+}
+@keyframes animate-grass-3 {
+  to {
+    --grass-color-3: #a3e5a3;
+  }
+}
+
+@keyframes animate-ground-1 {
+  to {
+    --ground-color-1: #fcd5aa;
+  }
+}
+@keyframes animate-ground-2 {
+  to {
+    --ground-color-2: #fcd9a6;
+  }
+}
+@keyframes animate-ground-3 {
+  to {
+    --ground-color-3: #ffe6cc;
+  }
+}
+
+@keyframes animate-ice-1 {
+  to {
+    --ice-color-1: #85e0d1;
+  }
+}
+@keyframes animate-ice-2 {
+  to {
+    --ice-color-2: #a3d5d5;
+  }
+}
+@keyframes animate-ice-3 {
+  to {
+    --ice-color-3: #c1ecec;
+  }
+}
+
+@keyframes animate-normal-1 {
+  to {
+    --normal-color-1: #b0b2af;
+  }
+}
+@keyframes animate-normal-2 {
+  to {
+    --normal-color-2: #b5b5b5;
+  }
+}
+@keyframes animate-normal-3 {
+  to {
+    --normal-color-3: #c2c2c8;
+  }
+}
+
+@keyframes animate-poison-1 {
+  to {
+    --poison-color-1: #c783df;
+  }
+}
+@keyframes animate-poison-2 {
+  to {
+    --poison-color-2: #d197e2;
+  }
+}
+@keyframes animate-poison-3 {
+  to {
+    --poison-color-3: #e6b3f2;
+  }
+}
+
+@keyframes animate-psychic-1 {
+  to {
+    --psychic-color-1: #fb9591;
+  }
+}
+@keyframes animate-psychic-2 {
+  to {
+    --psychic-color-2: #fab1b1;
+  }
+}
+@keyframes animate-psychic-3 {
+  to {
+    --psychic-color-3: #ffcccc;
+  }
+}
+
+@keyframes animate-rock-1 {
+  to {
+    --rock-color-1: #d9cb9a;
+  }
+}
+@keyframes animate-rock-2 {
+  to {
+    --rock-color-2: #e3d2b8;
+  }
+}
+@keyframes animate-rock-3 {
+  to {
+    --rock-color-3: #f0e6cc;
+  }
+}
+
+@keyframes animate-steel-1 {
+  to {
+    --steel-color-1: #66a5b3;
+  }
+}
+@keyframes animate-steel-2 {
+  to {
+    --steel-color-2: #7aa5b5;
+  }
+}
+@keyframes animate-steel-3 {
+  to {
+    --steel-color-3: #b3d1d1;
+  }
+}
+
+@keyframes animate-water-1 {
+  to {
+    --water-color-1: #63adff;
+  }
+}
+@keyframes animate-water-2 {
+  to {
+    --water-color-2: #6fbedd;
+  }
+}
+@keyframes animate-water-3 {
+  to {
+    --water-color-3: #99ccff;
+  }
+}
+
+/* Define classes for each color animation */
+
+.bug-animated {
+  --color-1: var(--bug-color-1);
+  --color-2: var(--bug-color-2);
+  --color-3: var(--bug-color-3);
+  animation: animate-bug-1 10s infinite linear alternate,
+    animate-bug-2 5s infinite linear alternate,
+    animate-bug-3 15s infinite linear alternate;
+}
+
+.dark-animated {
+  --color-1: var(--dark-color-1);
+  --color-2: var(--dark-color-2);
+  --color-3: var(--dark-color-3);
+  animation: animate-dark-1 10s infinite linear alternate,
+    animate-dark-2 5s infinite linear alternate,
+    animate-dark-3 15s infinite linear alternate;
+}
+
+.dragon-animated {
+  --color-1: var(--dragon-color-1);
+  --color-2: var(--dragon-color-2);
+  --color-3: var(--dragon-color-3);
+  animation: animate-dragon-1 10s infinite linear alternate,
+    animate-dragon-2 5s infinite linear alternate,
+    animate-dragon-3 15s infinite linear alternate;
+}
+
+.electric-animated {
+  --color-1: var(--electric-color-1);
+  --color-2: var(--electric-color-2);
+  --color-3: var(--electric-color-3);
+  animation: animate-electric-1 10s infinite linear alternate,
+    animate-electric-2 5s infinite linear alternate,
+    animate-electric-3 15s infinite linear alternate;
+}
+
+.fire-animated {
+  --color-1: var(--fire-color-1);
+  --color-2: var(--fire-color-2);
+  --color-3: var(--fire-color-3);
+  animation: animate-fire-1 10s infinite linear alternate,
+    animate-fire-2 5s infinite linear alternate,
+    animate-fire-3 15s infinite linear alternate;
+}
+
+.fairy-animated {
+  --color-1: var(--fairy-color-1);
+  --color-2: var(--fairy-color-2);
+  --color-3: var(--fairy-color-3);
+  animation: animate-fairy-1 10s infinite linear alternate,
+    animate-fairy-2 5s infinite linear alternate,
+    animate-fairy-3 15s infinite linear alternate;
+}
+
+.fighting-animated {
+  --color-1: var(--fighting-color-1);
+  --color-2: var(--fighting-color-2);
+  --color-3: var(--fighting-color-3);
+  animation: animate-fighting-1 10s infinite linear alternate,
+    animate-fighting-2 5s infinite linear alternate,
+    animate-fighting-3 15s infinite linear alternate;
+}
+
+.flying-animated {
+  --color-1: var(--flying-color-1);
+  --color-2: var(--flying-color-2);
+  --color-3: var(--flying-color-3);
+  animation: animate-flying-1 10s infinite linear alternate,
+    animate-flying-2 5s infinite linear alternate,
+    animate-flying-3 15s infinite linear alternate;
+}
+
+.ghost-animated {
+  --color-1: var(--ghost-color-1);
+  --color-2: var(--ghost-color-2);
+  --color-3: var(--ghost-color-3);
+  animation: animate-ghost-1 10s infinite linear alternate,
+    animate-ghost-2 5s infinite linear alternate,
+    animate-ghost-3 15s infinite linear alternate;
+}
+
+.grass-animated {
+  --color-1: var(--grass-color-1);
+  --color-2: var(--grass-color-2);
+  --color-3: var(--grass-color-3);
+  animation: animate-grass-1 10s infinite linear alternate,
+    animate-grass-2 5s infinite linear alternate,
+    animate-grass-3 15s infinite linear alternate;
+}
+
+.ground-animated {
+  --color-1: var(--ground-color-1);
+  --color-2: var(--ground-color-2);
+  --color-3: var(--ground-color-3);
+  animation: animate-ground-1 10s infinite linear alternate,
+    animate-ground-2 5s infinite linear alternate,
+    animate-ground-3 15s infinite linear alternate;
+}
+
+.ice-animated {
+  --color-1: var(--ice-color-1);
+  --color-2: var(--ice-color-2);
+  --color-3: var(--ice-color-3);
+  animation: animate-ice-1 10s infinite linear alternate,
+    animate-ice-2 5s infinite linear alternate,
+    animate-ice-3 15s infinite linear alternate;
+}
+
+.normal-animated {
+  --color-1: var(--normal-color-1);
+  --color-2: var(--normal-color-2);
+  --color-3: var(--normal-color-3);
+  animation: animate-normal-1 10s infinite linear alternate,
+    animate-normal-2 5s infinite linear alternate,
+    animate-normal-3 15s infinite linear alternate;
+}
+
+.poison-animated {
+  --color-1: var(--poison-color-1);
+  --color-2: var(--poison-color-2);
+  --color-3: var(--poison-color-3);
+  animation: animate-poison-1 10s infinite linear alternate,
+    animate-poison-2 5s infinite linear alternate,
+    animate-poison-3 15s infinite linear alternate;
+}
+
+.psychic-animated {
+  --color-1: var(--psychic-color-1);
+  --color-2: var(--psychic-color-2);
+  --color-3: var(--psychic-color-3);
+  animation: animate-psychic-1 10s infinite linear alternate,
+    animate-psychic-2 5s infinite linear alternate,
+    animate-psychic-3 15s infinite linear alternate;
+}
+
+.rock-animated {
+  --color-1: var(--rock-color-1);
+  --color-2: var(--rock-color-2);
+  --color-3: var(--rock-color-3);
+  animation: animate-rock-1 10s infinite linear alternate,
+    animate-rock-2 5s infinite linear alternate,
+    animate-rock-3 15s infinite linear alternate;
+}
+
+.steel-animated {
+  --color-1: var(--steel-color-1);
+  --color-2: var(--steel-color-2);
+  --color-3: var(--steel-color-3);
+  animation: animate-steel-1 10s infinite linear alternate,
+    animate-steel-2 5s infinite linear alternate,
+    animate-steel-3 15s infinite linear alternate;
+}
+
+.water-animated {
+  --color-1: var(--water-color-1);
+  --color-2: var(--water-color-2);
+  --color-3: var(--water-color-3);
+  animation: animate-water-1 10s infinite linear alternate,
+    animate-water-2 5s infinite linear alternate,
+    animate-water-3 15s infinite linear alternate;
+}
+
+/* Define a common class to use the gradient with animation */
+
+.top-card-bg {
+  background: radial-gradient(
+      250px circle at 35% 60% in oklab,
+      var(--color-3),
+      transparent 100% 100%
+    ),
+    radial-gradient(
+      farthest-side circle at 75% 30% in oklab,
+      var(--color-2) 0%,
+      var(--color-1) 100%
+    );
+}
