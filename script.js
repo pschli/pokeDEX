@@ -61,6 +61,7 @@ async function getListOfAllPokemon() {
 }
 
 async function displayPokemon(activeObject = allPokemon) {
+  document.getElementById("loadbutton").disabled = true;
   document.getElementById("spinner").classList.remove("d-none");
   for (let i = offset; i < offset + 24 && i < activeObject.length; i++) {
     let pokemonDetail;
@@ -77,7 +78,6 @@ async function displayPokemon(activeObject = allPokemon) {
 }
 
 function displayMorePokemon() {
-  document.getElementById("loadbutton").disabled = true;
   currentSelectedType == "none"
     ? displayPokemon()
     : displayPokemon(activePokemonSource);
