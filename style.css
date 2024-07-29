@@ -646,6 +646,23 @@ footer {
   gap: 30px;
 }
 
+#evolutiontab {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.evopic {
+  height: 100px;
+}
+
+.evo-arrow {
+  height: 40px;
+}
+
 .bar-table {
   width: 90%;
   border-collapse: collapse;

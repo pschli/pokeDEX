@@ -16,11 +16,12 @@ function findMatching(searchString) {
   let matching = [];
   if (currentSelectedType == "none") {
     matching = allPokemon.filter((pokemon) => {
-      if (pokemon.name.startsWith(searchString) == true) return pokemon;
+      if (pokemon.name.startsWith(searchString.toLowerCase()) == true)
+        return pokemon;
     });
   } else {
     matching = activePokemonSource.filter((pokemon) => {
-      if (pokemon.name.startsWith(searchString)) return pokemon;
+      if (pokemon.name.startsWith(searchString.toLowerCase())) return pokemon;
     });
   }
   return matching;

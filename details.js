@@ -67,6 +67,7 @@ function createPokemonDetailsCard(overlay, pokemonName, id) {
     details,
     capitalizeString(pokemonName)
   );
+  getEvolutionStages(pokemonName);
   addNextArrow(overlay, Number(id) + 1);
   addValueBars();
   addTypesToDetailView(details);
@@ -117,7 +118,6 @@ function closeOverlay(id) {
 }
 
 function playSound(soundUrl) {
-  console.log(soundUrl);
   let pokemonSound = new Audio(soundUrl);
   pokemonSound.play();
 }

@@ -116,7 +116,7 @@ function returnPokemonDetailsCard(id, bgColor, details, pokemonName) {
               </table>
             </div>
           </div>
-          <div class="details-text d-none" id="details3"></div>
+          <div class="details-text d-none" id="details3"><div id="evolutiontab"></div></div>
         </div>
     </div>
   `;
