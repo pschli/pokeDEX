@@ -22,9 +22,7 @@ function returnType(pokemonType) {
         </div>`;
 }
 
-// style="background-color:${bgColor}"
-
-function returnPokemonDetailsCard(id, bgColor, details, pokemonName) {
+function returnPokemonDetailsCard(id, details, pokemonName) {
   return `
     <div class="detailview" id="detailview-${id}" onclick="event.stopPropagation()">
         <div class="top-details-container top-card-bg ${details.type[0]}-animated">

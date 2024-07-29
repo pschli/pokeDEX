@@ -59,11 +59,9 @@ function pokemonToShow(id) {
 function createPokemonDetailsCard(overlay, pokemonName, id) {
   if (!pokemonDetails[pokemonName]) pokemonName = "missing";
   let details = pokemonDetails[pokemonName];
-  let bgColor = typeColors[details.type[0]][0];
   addBackArrow(overlay, Number(id) - 1);
   overlay.innerHTML += returnPokemonDetailsCard(
     id,
-    bgColor,
     details,
     capitalizeString(pokemonName)
   );
