@@ -29,6 +29,7 @@ async function getEvolutionStages(pokemonName) {
 
 async function showEvolution(stages) {
   let evoDisplay = document.getElementById("evolutiontab");
+  evoDisplay.innerHTML = "";
   for (let i = 0; i < stages.length; i++) {
     await getPokemonDetails(stages[i]);
     let sprite = pokemonDetails[stages[i]].spriteUrl;
